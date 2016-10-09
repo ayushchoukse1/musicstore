@@ -5,10 +5,7 @@ import com.musicstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +27,19 @@ public class ProductController {
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getAllProducts(Model model) {
-        model.addAttribute("users",productService.findAll());
+        model.addAttribute("products",productService.findAll());
         return "productList";
     }
 
-    @RequestMapping(value = "/viewProduct", method = RequestMethod.GET)
+ /*   @RequestMapping(value = "/viewProduct", method = RequestMethod.GET)
     public String getProduct() {
+        return "viewProduct";
+    }
+*/
+    @RequestMapping(value = "/viewProduct/{id}", method = RequestMethod.GET)
+    public String getProductByID(@PathVariable(value = "id") Long id,Model model) {
+      Product product=  productService.findById(id);
+        model.addAttribute("product",product);
         return "viewProduct";
     }
 

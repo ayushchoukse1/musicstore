@@ -1,9 +1,6 @@
 package com.musicstore.service;
 
 import com.musicstore.dao.Product;
-import com.musicstore.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,4 +11,5 @@ import java.util.List;
 public interface ProductService  {
     Product findByName(String name);
     List<Product> findAll();
+    Product findById(Long id);
 }
