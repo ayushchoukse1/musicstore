@@ -5,29 +5,29 @@ import com.musicstore.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Ayush on 10/8/2016.
  */
 @Service
-public class ProductServiceImpl implements  ProductService{
+public class ProductServiceImpl implements ProductService {
 
     ProductRepository productRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository){
-        this.productRepository=productRepository;
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
-    public Product findByName(String name){
-       return productRepository.findByName(name);
+    public Product findByProductName(String name) {
+
+        return productRepository.findByProductName(name);
     }
-    public List<Product> findAll(){
-        List<Product> list = new ArrayList<Product>();
-        list= productRepository.findAllByOrderByName();
-        return list;
+
+    public List<Product> findAll() {
+
+        return productRepository.findAllByOrderByProductName();
     }
 
     @Override
@@ -35,4 +35,9 @@ public class ProductServiceImpl implements  ProductService{
         return productRepository.findById(id);
     }
 
+
+    @Override
+    public void save(Product product) {
+        productRepository.save(product);
+    }
 }

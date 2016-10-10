@@ -9,7 +9,8 @@ import java.util.List;
  */
 
 public interface ProductService  {
-    Product findByName(String name);
+    Product findByProductName(String name);
     List<Product> findAll();
     Product findById(Long id);
+    void save(Product product);
 }

@@ -25,7 +25,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getAllProducts(Model model) {
         model.addAttribute("products",productService.findAll());
         return "productList";

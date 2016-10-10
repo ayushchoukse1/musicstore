@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+>
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+
+<body>
+<!--/*/ <th:block th:include="fragments/headerinc :: header"></th:block> /*/-->
+<div class="container-wrapper">
+    <div class="container">
+        <div class="page-header">
+            <h1>Add Product</h1>
+            <p class="lead">Add a new product</p>
+        </div>
+        <form action="/admin/productAddAction" th:action="@{/admin/productAddAction}" th:object="${product}" method="post">
+            <div class="form-group">
+                <label th:for="${#ids.next('productName')}" th:text="#{com.product.productName}">Covered</label>
+                <input type="text" th:field="*{productName}"/>
+            </div>
+            <div class="form-group">
+                <label th:for="${#ids.next('category')}" th:text="#{com.product.category}">Covered</label>
+
+                <input type="radio" th:field="*{category}" th:value="Category1"/>
+                <label th:text="#{com.product.category1}">Covered</label>
+
+                <input type="radio" th:field="*{category}" th:value="Category2"/>
+                <label th:text="#{com.product.category2}">Covered</label>
+
+                <input type="radio" th:field="*{category}" th:value="Category3"/>
+                <label th:text="#{com.product.category3}">Covered</label>
+            </div>
+            <div class="form-group">
+                <label th:for="${#ids.next('description')}" th:="#{com.product.description}">Covered</label>
+                <input type="text" th:field="*{description}"/>
+            </div>
+            <div class="form-group">
+                <label th:for="${#ids.next('price')}" th:text="#{com.product.price}">Covered</label>
+                <input type="text" th:field="*{price}"/>
+            </div>
+            <div class="form-group">
+                <label th:for="${#ids.next('productCondition')}" th:text="#{com.product.productCondition}">Covered</label>
+
+                <input type="radio" th:field="*{productCondition}" th:value="Category1"/>
+                <label th:text="#{com.product.productCondition.new}">Covered</label>
+
+                <input type="radio" th:field="*{productCondition}" th:value="Category2"/>
+                <label th:text="#{com.product.productCondition.used}">Covered</label>
+            </div>
+            <div class="form-group">
+                <label th:for="${#ids.next('productStatus')}" th:text="#{com.product.productStatus}">Covered</label>
+
+                <input type="radio" th:field="*{productStatus}" th:value="Category1"/>
+                <label th:text="#{com.product.productStatus.active}">Covered</label>
+
+                <input type="radio" th:field="*{productStatus}" th:value="Category2"/>
+                <label th:text="#{com.product.productStatus.inactive}">Covered</label>
+            </div>
+            <div class="form-group">
+                <label th:for="${#ids.next('unitInStocks')}" th:text="#{com.product.unitinstocks}">Covered</label>
+                <input type="text" th:field="*{unitInStocks}"/>
+            </div>
+            <div class="form-group">
+                <label th:for="${#ids.next('manufacturer')}" th:text="#{com.product.manufacturer}">Covered</label>
+                <input type="text" th:field="*{manufacturer}"/>
+            </div>
+            <div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+        </form>
+        <!--/*/ <th:block th:include="fragments/footer :: foot"></th:block> /*/-->
+    </div>
+</div><!-- /.container -->
+</body>
+</html>

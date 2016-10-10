@@ -1,6 +1,8 @@
 package com.musicstore.dao;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,18 +19,22 @@ public class Product {
     Long id;
 
     @Column(nullable = false)
-    String name;
+    String productName;
     String category;
     String description;
 
     @Column(nullable = false)
     double price;
-    String condition;
-    String status;
+    String productCondition;
+    String productStatus;
+
     int unitInStocks;
     String manufacturer;
 
 
-    private Product() {
+    public Product() {
     }
+
+
+
 }
